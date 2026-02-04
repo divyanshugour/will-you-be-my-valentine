@@ -7,7 +7,6 @@ export default function App(){
   const heartsRef = useRef([])
   const noBtnRef = useRef(null)
   const yesBtnRef = useRef(null)
-  const containerRef = useRef(null)
 
   useEffect(()=>{
     heartsRef.current = []
@@ -42,20 +41,16 @@ export default function App(){
   function moveNo(immediate=false){
     const no = noBtnRef.current
     const yes = yesBtnRef.current
-    const container = containerRef.current
-    if(!no || !container) return
-    const cRect = container.getBoundingClientRect()
+    if(!no) return
     const yesRect = yes ? yes.getBoundingClientRect() : {left:-9999,right:-9999,top:-9999,bottom:-9999}
-    const padding = 24
-    const vw = cRect.width
-    const vh = cRect.height
+    const padding = 60
+    const vw = window.innerWidth
+    const vh = window.innerHeight
     let x,y
     for(let tries=0; tries<30; tries++){
       x = padding + Math.random()*(vw - padding*2)
       y = padding + Math.random()*(vh - padding*2)
-      const absX = cRect.left + x
-      const absY = cRect.top + y
-      if(!(absX > yesRect.left-80 && absX < yesRect.right+80 && absY > yesRect.top-80 && absY < yesRect.bottom+80)) break
+      if(!(x > yesRect.left-80 && x < yesRect.right+80 && y > yesRect.top-80 && y < yesRect.bottom+80)) break
     }
     no.style.transition = immediate ? 'none' : 'left 0.28s ease, top 0.28s ease, transform 0.2s'
     no.style.left = x + 'px'
@@ -83,7 +78,7 @@ export default function App(){
 
   return (
     <div className="app-root">
-      <div className="hearts-layer" aria-hidden="true" ref={containerRef}>
+      <div className="hearts-layer" aria-hidden="true">
         {hearts.map(h => (
           <span key={h.id}
             className="heart"
