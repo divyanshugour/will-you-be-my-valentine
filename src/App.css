@@ -2,7 +2,7 @@
 html,body,#root{height:100%;margin:0;font-family:system-ui,Segoe UI,Roboto,'Helvetica Neue',Arial;color:#fff}
 body{background:radial-gradient(circle at 10% 10%, #ff9ac8 0%, #ff6ea1 30%, #7f00ff 100%);overflow:hidden}
 
-.app-root{height:100%;display:flex;align-items:center;justify-content:center}
+.app-root{height:100vh;width:100%;display:flex;align-items:center;justify-content:center;position:relative}
 .hearts-layer{position:fixed;inset:0;pointer-events:none;overflow:hidden;z-index:0}
 .heart{position:absolute;will-change:transform,opacity;animation-name:floatUp,sway;animation-timing-function:linear,ease-in-out;animation-iteration-count:infinite;opacity:0.9}
 
