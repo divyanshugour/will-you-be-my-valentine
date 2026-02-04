@@ -156,7 +156,7 @@ export default function ViewValentine({ valentineId }) {
           <div style={{width: '220px', maxWidth: '45%', flexShrink: 0}}></div>
           <button ref={noBtnRef} className="btn no">
             {noMsgIdx === 0 ? 'No' : noMessages[noMsgIdx - 1]}
-          </div>
+          </button>
         )}
 
         {valentine.day === 'valentinesday' && answered && (
