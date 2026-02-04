@@ -43,13 +43,16 @@ export default function App(){
     const yes = yesBtnRef.current
     if(!no) return
     const yesRect = yes ? yes.getBoundingClientRect() : {left:-9999,right:-9999,top:-9999,bottom:-9999}
-    const padding = 60
+    const btnRect = no.getBoundingClientRect()
+    const btnWidth = btnRect.width || 80
+    const btnHeight = btnRect.height || 50
+    const padding = Math.max(btnWidth / 2, btnHeight / 2) + 20
     const vw = window.innerWidth
     const vh = window.innerHeight
     let x,y
     for(let tries=0; tries<30; tries++){
-      x = padding + Math.random()*(vw - padding*2)
-      y = padding + Math.random()*(vh - padding*2)
+      x = padding + Math.random()*(vw - padding*2 - btnWidth)
+      y = padding + Math.random()*(vh - padding*2 - btnHeight)
       if(!(x > yesRect.left-80 && x < yesRect.right+80 && y > yesRect.top-80 && y < yesRect.bottom+80)) break
     }
     no.style.transition = immediate ? 'none' : 'left 0.28s ease, top 0.28s ease, transform 0.2s'
