@@ -13,9 +13,13 @@ export default function ValentineForm({ onLinkGenerated }) {
   const [error, setError] = useState('')
 
   const days = [
-    { value: 'roseday', label: '🌹 Rose Day' },
-    { value: 'hugday', label: '🤗 Hug Day' },
-    { value: 'kissday', label: '💋 Kiss Day' }
+    { value: 'proposeday', label: '🌷 Propose Day', color: 'proposeday' },
+    { value: 'chocolateday', label: '🍫 Chocolate Day', color: 'chocolateday' },
+    { value: 'teddyday', label: '🧸 Teddy Day', color: 'teddyday' },
+    { value: 'promiseday', label: '🤝 Promise Day', color: 'promiseday' },
+    { value: 'hugday', label: '🤗 Hug Day', color: 'hugday' },
+    { value: 'kissday', label: '💋 Kiss Day', color: 'kissday' },
+    { value: 'valentinesday', label: '💖 Valentine\'s Day', color: 'valentinesday' }
   ]
 
   function generateId() {
