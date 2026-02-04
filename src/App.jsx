@@ -146,9 +146,6 @@ export default function App(){
       {mode === 'form' && (
         <main className="card">
           <ValentineForm onLinkGenerated={handleLinkGenerated} />
-          <button className="btn no" onClick={handleBackToHome} style={{marginTop: '20px', width: '100%'}}>
-            Back
-          </button>
         </main>
       )}
 
