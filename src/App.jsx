@@ -12,7 +12,7 @@ export default function App(){
   const [yesScale, setYesScale] = useState(1)
   const [noMsgIdx, setNoMsgIdx] = useState(0)
   const [celebrateMode, setCelebrateMode] = useState(false)
-  const [mode, setMode] = useState('home')
+  const [mode, setMode] = useState('form')
   const [generatedId, setGeneratedId] = useState(null)
   const [viewingId, setViewingId] = useState(null)
   const heartsRef = useRef([])
