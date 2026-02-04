@@ -12,7 +12,7 @@ export default function ViewValentine({ valentineId }) {
   const noBtnRef = useRef(null)
   const yesBtnRef = useRef(null)
 
-  const noMessages = ['are you sure?', 'fir se soch lo', 'nahi nahi', 'sach mein?', 'pakka pakka?']
+  const noMessages = ['Pakka?', 'Soch lia?', 'Mana mat kro na!', 'Achche bachche na nahi bolte.', 'Lock kar diya jaye?', 'Ek baar phir soch lo.', 'Final decision hai?', 'Mere liye bhi nahi?', 'Itni chhoti si toh baat hai.', 'Ek baar "haan" bol ke toh dekho.']
 
   const dayThemes = {
     roseday: { bg: 'linear-gradient(135deg, #ff9ac8 0%, #ff6ea1 100%)', emoji: '🌹', name: 'Rose Day', gif: 'https://media.giphy.com/media/xTiTnhbNQIBYwYw2gU/giphy.gif' },
@@ -157,6 +157,7 @@ export default function ViewValentine({ valentineId }) {
           <button ref={noBtnRef} className="btn no">
             {noMsgIdx === 0 ? 'No' : noMessages[noMsgIdx - 1]}
           </button>
+        </div>
         )}
 
         {valentine.day === 'valentinesday' && answered && (
