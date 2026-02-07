@@ -164,25 +164,25 @@ export default function ViewValentine({ valentineId }) {
     if(!template) return null
     const parts = template.split('[Name]')
     return (
-      <strong>
+      <span>
         {parts.map((part, idx) => (
           <span key={idx}>
             {part}
             {idx === parts.length - 1 ? null : <span className="highlight-name">{name}</span>}
           </span>
         ))}
-      </strong>
+      </span>
     )
   }
 
   return (
-    <div style={{height: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
+    <div style={{minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '20px 0'}}>
       <main className="card">
         {templateDayMessage && (
           <p className="day-top-message"><span className="day-top-emoji">{theme.emoji}</span>{renderDayMessageWithHighlight(templateDayMessage, valentine.name)}</p>
         )}
 
-        <h1 className="title"><strong>{valentine.message}</strong></h1>
+        <h1 className="title">{valentine.message}</h1>
 
         {(valentine.imageUrl || theme.gif) && (
           <img className="gif" src={valentine.imageUrl || theme.gif} alt="Valentine" />
