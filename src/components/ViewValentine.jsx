@@ -175,6 +175,28 @@ export default function ViewValentine({ valentineId }) {
     )
   }
 
+  function isVideoUrl(url){
+    if(!url) return false
+    const videoExtensions = ['.mp4', '.webm', '.ogg', '.mov', '.avi']
+    const lowerUrl = url.toLowerCase()
+    return videoExtensions.some(ext => lowerUrl.includes(ext))
+  }
+
+  function renderMedia(url){
+    if(!url) return null
+    
+    if(isVideoUrl(url)){
+      return (
+        <video className="gif" controls autoPlay loop muted playsInline>
+          <source src={url} type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+      )
+    }
+    
+    return <img className="gif" src={url} alt="Valentine" />
+  }
+
   return (
     <div style={{minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '20px 0'}}>
       <main className="card">
@@ -184,9 +206,7 @@ export default function ViewValentine({ valentineId }) {
 
         <h1 className="title">{valentine.message}</h1>
 
-        {(valentine.imageUrl || theme.gif) && (
-          <img className="gif" src={valentine.imageUrl || theme.gif} alt="Valentine" />
-        )}
+        {(valentine.imageUrl || theme.gif) && renderMedia(valentine.imageUrl || theme.gif)}
 
         {valentine.day === 'valentinesday' && !answered && (
         <div style={{display: 'flex', gap: '12px', alignItems: 'center', justifyContent: 'center', marginTop: '24px'}}>
